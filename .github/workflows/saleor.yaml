@@ -44,4 +44,3 @@ jobs:
           context: ./saleor
           push: true
           tags: "cyrenity/saleor:latest"
-          repository: "cyrenity/saleor"
