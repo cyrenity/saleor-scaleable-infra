@@ -28,12 +28,14 @@ jobs:
           submodules: recursive
 
       - name: Build & Publish Image 
-        uses: docker/build-push-action@v1
+        uses: docker/build-push-action@v2
         env:
           app_name: saleor-core
+          STATIC_URL: "/static/"
         with:
           username: ${{ secrets.DOCKER_USER }} 
           password: ${{ secrets.DOCKER_PASSWORD }} 
-          dockerfile: ./saleor/Dockerfile
+          dockerfile: ./Dockerfile
+          context: ./saleor
           tag_with_sha: true 
           repository: "cyrenity/saleor"
